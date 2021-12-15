@@ -36,7 +36,7 @@ public class AutoTest {
     @Test
     void shouldLoginActiveUserInvalidLogin() {
         UserCreation user = DataGenerator.GenerateUser.generateActiveUser();
-        $("[data-test-id=login] input").sendKeys(user.getLogin() + "1");
+        $("[data-test-id=login] input").sendKeys(DataGenerator.GenerateUser.generateLogin());
         $("[data-test-id=password] input").sendKeys(user.getPassword());
         $("[data-test-id=action-login]").click();
         $(withText("Неверно указан логин или пароль")).shouldBe(visible);
@@ -54,8 +54,8 @@ public class AutoTest {
     @Test
     void shouldLoginActiveUserInvalidLoginAndPassword() {
         UserCreation user = DataGenerator.GenerateUser.generateActiveUser();
-        $("[data-test-id=login] input").sendKeys(user.getLogin() + "1");
-        $("[data-test-id=password] input").sendKeys(user.getPassword() + "1");
+        $("[data-test-id=login] input").sendKeys(DataGenerator.GenerateUser.generateLogin());
+        $("[data-test-id=password] input").sendKeys(DataGenerator.GenerateUser.generatePassword());
         $("[data-test-id=action-login]").click();
         $(withText("Неверно указан логин или пароль")).shouldBe(visible);
     }
